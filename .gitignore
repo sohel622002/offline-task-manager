@@ -1,0 +1,46 @@
+# Dependency directories
+node_modules/
+vendor/
+target/
+build/
+dist/
+
+# postgress binaries
+postgres_data/
+postgres-bin/
+
+# Logs and temporary files
+*.log
+logs/
+tmp/
+temp/
+
+# Environment variables and sensitive data
+.env
+.env.*
+config/*.secret.exs # Example for Elixir Phoenix framework
+*.pem # Private keys
+*.key # Private keys
+
+# IDE and OS specific files
+.idea/
+.vscode/
+.DS_Store
+Thumbs.db
+
+# Build artifacts and compiled files
+*.pyc
+__pycache__/
+*.class
+*.o
+*.so
+*.dll
+*.exe
+
+# Database related files
+*.sqlite3
+*.db
+db/*.sqlite3 # Example for SQLite databases
+
+# Uploaded files or user-generated content (if not handled by object storage)
+uploads/
