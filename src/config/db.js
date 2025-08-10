@@ -236,9 +236,15 @@ const downloadAndSetupPostgreSQL = async () => {
   }
 }
 
-const getDbClient = () => {
-  if (!dbClient) throw new Error("Database not initialized yet.");
-  return dbClient;
+const getDbClient = async () => {
+  try {
+    if (!dbClient) {
+      await initializePostgres();
+    }
+    return dbClient;
+  } catch (error) {
+    console.error('Database not initialized yet:', error.message);
+  }
 };
 
 module.exports = { initializePostgres, downloadAndSetupPostgreSQL, getDbClient };

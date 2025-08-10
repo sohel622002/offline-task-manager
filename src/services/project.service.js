@@ -2,7 +2,7 @@ const db = require('../config/db');
 
 exports.getAll = async () => {
   try {
-    const dbClient = db.getDbClient();
+    const dbClient = await db.getDbClient();
     const result = await dbClient.query('SELECT * FROM projects');
     return result.rows;
   } catch (error) {
@@ -12,7 +12,7 @@ exports.getAll = async () => {
 
 exports.create = async ({name, description}) => {
   try {
-    const dbClient = db.getDbClient();
+    const dbClient = await db.getDbClient();
     if (!name || !description) {
       throw new Error('Name and description are required');
     }
