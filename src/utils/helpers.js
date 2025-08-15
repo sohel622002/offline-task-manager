@@ -4,6 +4,8 @@ const { spawn } = require("child_process");
 const https = require('https');
 const { TEMP_DIR } = require("../constant");
 const extract = require('extract-zip');
+const socketService = require("./socket");
+const { SOCKET_EVENTS } = require('../../shared')
 
 const runCommand = (command, args) => {
   return new Promise((resolve, reject) => {
@@ -145,6 +147,7 @@ const downloadFile = (url, destination) => {
         if (totalSize) {
           const percent = ((downloadedSize / totalSize) * 100).toFixed(1);
           process.stdout.write(`\rDownloading... ${percent}%`);
+          socketService.emitToAll(SOCKET_EVENTS.POSTGRES_BINARY_PROGRESS, { percent });
         }
       });
       
