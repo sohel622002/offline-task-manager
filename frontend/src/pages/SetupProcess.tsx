@@ -4,7 +4,7 @@ import { useSocket } from "@/hooks/useSocket";
 import { Download, FileCog, Loader2Icon } from "lucide-react";
 import { useEffect, useState } from "react";
 import type { JSX } from "react/jsx-runtime";
-import { SOCKET_EVENTS } from "../../../shared";
+import { SOCKET_EVENTS } from "../constants/socketEvents";
 
 type ProcessCard = {
   id: number;

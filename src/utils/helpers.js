@@ -5,7 +5,7 @@ const https = require('https');
 const { TEMP_DIR } = require("../constant");
 const extract = require('extract-zip');
 const socketService = require("./socket");
-const { SOCKET_EVENTS } = require('../../shared')
+const { SOCKET_EVENTS } = require('../constants/socketEvents')
 
 const runCommand = (command, args) => {
   return new Promise((resolve, reject) => {

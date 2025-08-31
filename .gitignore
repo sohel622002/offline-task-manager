@@ -45,3 +45,4 @@ db/*.sqlite3 # Example for SQLite databases
 
 # Uploaded files or user-generated content (if not handled by object storage)
 uploads/
+/src/generated/prisma
