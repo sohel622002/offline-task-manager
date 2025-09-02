@@ -8,6 +8,7 @@ import SetupProcess from "./pages/SetupProcess";
 import AdminConnection from "./pages/AdminConnection";
 import { useEffect } from "react";
 import { io } from "socket.io-client";
+import { ToastContainer } from 'react-toastify';
 
 const socket = io("http://192.168.1.2:3001", {
   transports: ["websocket"],
@@ -31,6 +32,7 @@ function App() {
 
   return (
     <section className="min-h-screen bg-background">
+      <ToastContainer />
       <Router>
         <Routes>
           {/* Public Routes */}

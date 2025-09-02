@@ -1,6 +1,6 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { AppSidebar } from "@/components/app-sidebar"
+import { AppSidebar } from "@/components/app-sidebar";
 import {
   Breadcrumb,
   BreadcrumbItem,
@@ -8,15 +8,25 @@ import {
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
-} from "@/components/ui/breadcrumb"
-import { Separator } from "@/components/ui/separator"
+} from "@/components/ui/breadcrumb";
+import { Separator } from "@/components/ui/separator";
 import {
   SidebarInset,
   SidebarProvider,
   SidebarTrigger,
-} from "@/components/ui/sidebar"
+} from "@/components/ui/sidebar";
+import { useAuth } from "@/hooks/useAuth";
+import { useEffect } from "react";
 
 export default function Layout() {
+  const { validateUserLoggedIn } = useAuth();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const isLoggedIn = validateUserLoggedIn();
+    if (!isLoggedIn) navigate("/login");
+  }, [validateUserLoggedIn]);
+
   return (
     <>
       <SidebarProvider>
